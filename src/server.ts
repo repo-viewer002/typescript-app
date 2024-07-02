@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOSTNAME = process.env.HOSTNAME || "http://localhost";
 
 db();
 
@@ -14,5 +15,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", routes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at ${HOSTNAME || "http://localhost"}:${PORT}`);
 });

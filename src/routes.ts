@@ -4,11 +4,15 @@ import aclMiddleware from "./middlewares/acl.middleware";
 import authMiddleware from "./middlewares/auth.middleware";
 import uploadMiddleware from "./middlewares/upload.middleware";
 import authController from "./controllers/auth.controller";
+import homeController from "./controllers/home.controller";
 import categoriesController from "./controllers/categories.controller";
 import productsController from "./controllers/products.controller";
 import uploadController from "./controllers/upload.controller";
 
 const router = express.Router();
+
+// Home route
+router.get("/", homeController.home);
 
 // Authentication routes
 router.post("/auth/login", authController.login);
